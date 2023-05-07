@@ -303,7 +303,6 @@ DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay-lineage
 
 PRODUCT_ENFORCE_RRO_TARGETS := *
-PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += $(LOCAL_PATH)/overlay/packages/apps/CarrierConfig
 
 # Partitions
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
@@ -400,6 +399,7 @@ PRODUCT_SOONG_NAMESPACES += \
 
 # Telephony
 PRODUCT_PACKAGES += \
+    CarrierConfigOverlay \
     ims-ext-common \
     ims_ext_common.xml \
     libgui_shim \
