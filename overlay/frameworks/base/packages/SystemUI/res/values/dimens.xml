@@ -25,4 +25,10 @@
 
     <!-- the padding on the start of the statusbar -->
     <dimen name="status_bar_padding_start">30px</dimen>
+
+    <!-- The CPU temperature sensor path, defaults to empty -->
+    <string name="config_cpuTempSensor" translatable="false">/sys/class/thermal/thermal_zone13/temp</string>
+
+    <!-- The CPU temperature divider, if needed -->
+    <integer name="config_cpuTempDivider" translatable="false">1000</integer>
 </resources>
