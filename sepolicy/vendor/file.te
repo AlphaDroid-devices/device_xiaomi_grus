@@ -39,3 +39,5 @@ type sysfs_system_sleep_stats, sysfs_type, fs_type;
 type sysfs_touchpanel, sysfs_type, fs_type;
 
 type thermal_data_file, data_file_type, file_type;
+
+type vendor_sysfs_battery_supply, sysfs_type, fs_type;
