@@ -1,3 +1,9 @@
+on boot
+    chown system system /sys/class/qcom-battery/restricted_charging
+    chown system system /sys/class/qcom-battery/restricted_current
+    chmod 664 /sys/class/qcom-battery/restricted_charging
+    chmod 664 /sys/class/qcom-battery/restricted_current
+
 service vendor.fastcharge-hal-1-0 /vendor/bin/hw/vendor.lineage.fastcharge@1.0-service.xiaomi
     class hal
     user system
