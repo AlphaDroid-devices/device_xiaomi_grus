@@ -22,17 +22,10 @@ fi
 source "${HELPER}"
 
 # Initialize the helper for common
-setup_vendor "${DEVICE_COMMON}" "${VENDOR}" "${ANDROID_ROOT}" true
+setup_vendor "${DEVICEN}" "${VENDOR}" "${ANDROID_ROOT}" true
 
-# Warning headers and guards
-write_headers "grus pyxis xmsirius vela"
-
-# The standard common blobs
 write_makefiles "${MY_DIR}/proprietary-files.txt" true
-
-printf "\n%s\n" "ifeq (\$(TARGET_HAS_NFC),true)" >> "${PRODUCTMK}"
 write_makefiles "${MY_DIR}/proprietary-files-nfc.txt" true
-echo "endif" >> "${PRODUCTMK}"
 
 # Finish
 write_footers
@@ -44,7 +37,6 @@ if [ -s "${MY_DIR}/../${DEVICE}/proprietary-files.txt" ]; then
     # Warning headers and guards
     write_headers
 
-    # The standard device blobs
     write_makefiles "${MY_DIR}/../${DEVICE}/proprietary-files.txt" true
 
     # Finish
