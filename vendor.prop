@@ -204,6 +204,10 @@ ro.netflix.bsp_rev=Q670-14477-1
 ro.vendor.extension_library=libqti-perfd-client.so
 
 
+# SoC
+ro.soc.manufacturer=QTI
+ro.soc.model=SDM710
+
 # USB
 vendor.usb.diag.func.name=diag
 vendor.usb.dpl.inst.name=dpl
