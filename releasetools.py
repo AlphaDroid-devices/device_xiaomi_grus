@@ -17,6 +17,13 @@
 import common
 import re
 
+def FullOTA_InstallBegin(info):
+  info.script.AppendExtra('map_partition("system");')
+  info.script.AppendExtra('map_partition("vendor");')
+  info.script.AppendExtra('map_partition("product");')
+  info.script.AppendExtra('map_partition("system_ext");')
+  return
+
 def FullOTA_InstallEnd(info):
   OTA_InstallEnd(info)
   return
