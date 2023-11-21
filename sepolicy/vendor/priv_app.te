@@ -1,0 +1,2 @@
+# Allow privileged apps to access metadata
+r_dir_file(ueventd, metadata_file)
