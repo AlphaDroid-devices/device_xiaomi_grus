@@ -54,5 +54,6 @@
         <item>com.android.camera</item>
         <item>org.lineageos.aperture</item>
         <item>org.lineageos.aperture.dev</item>
+        <item>com.google.android.GoogleCamera</item>
     </string-array>
 </resources>
