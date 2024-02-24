@@ -18,4 +18,10 @@
 <resources>
     <!-- Height of the status bar header bar when on Keyguard -->
     <dimen name="status_bar_header_height_keyguard">@*android:dimen/status_bar_height</dimen>
+    <!-- Location on the screen of the center of the fingerprint sensor. -->
+    <dimen name="physical_fingerprint_sensor_center_screen_location_y">2030px</dimen>
+    <!-- Udfps animation -->
+    <dimen name="udfps_animation_size">260dp</dimen>
+    <dimen name="udfps_animation_offset">-8dp</dimen>
+    <dimen name="keyguard_indication_margin_bottom">8dp</dimen>
 </resources>
