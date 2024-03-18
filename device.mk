@@ -466,5 +466,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_BOOT_JARS += \
     WfdCommon
 
+# dummy app to override unwanted packages
+PRODUCT_PACKAGES += \
+    overrides
+
 # Inherit the proprietary files
 $(call inherit-product, vendor/xiaomi/grus/grus-vendor.mk)
