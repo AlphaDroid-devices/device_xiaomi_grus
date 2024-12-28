@@ -8,11 +8,11 @@
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
-# Inherit some common Lineage stuff.
-$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
-
 # Inherit from grus device
 $(call inherit-product, device/xiaomi/grus/device.mk)
+
+# Inherit some common Lineage stuff.
+$(call inherit-product, vendor/alpha/config/common_full_phone.mk)
 
 PRODUCT_NAME := lineage_grus
 PRODUCT_DEVICE := grus
@@ -38,7 +38,7 @@ TARGET_BUILD_PACKAGE := 2
 # 1 - stock (default)
 # 2 - lawnchair
 # 3 - pixel (valid only on gapps builds)
-TARGET_LAUNCHER := 2
+TARGET_LAUNCHER := 1
 
 # GAPPS (valid only for GAPPS builds)
 TARGET_SUPPORTS_QUICK_TAP := true
@@ -48,7 +48,7 @@ TARGET_INCLUDE_LIVE_WALLPAPERS := false
 # TARGET_SUPPORTS_GOOGLE_RECORDER := true
 
 # Debugging
-TARGET_INCLUDE_MATLOG := false
+TARGET_INCLUDE_MATLOG := true
 
 # Maintainer
 ALPHA_BUILD_TYPE := Official
