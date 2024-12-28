@@ -479,7 +479,7 @@ PRODUCT_PACKAGES += \
     libpng.vendor \
     libwfdaac_vendor
 
-PRODUCT_BOOT_JARS += \
+# PRODUCT_BOOT_JARS += \
     WfdCommon
 
 # dummy app to override unwanted packages
