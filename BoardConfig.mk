@@ -8,6 +8,7 @@ DEVICE_PATH := device/xiaomi/grus
 
 BUILD_BROKEN_DUP_RULES := true
 BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
+BUILD_BROKEN_INCORRECT_PARTITION_IMAGES := true
 
 # APEX
 DEXPREOPT_GENERATE_APEX_IMAGE := true
@@ -48,6 +49,7 @@ TARGET_USES_YCRCB_CAMERA_ENCODE := true
 # Display
 TARGET_HAS_WIDE_COLOR_DISPLAY := true
 TARGET_USES_FOD_ZPOS := true
+TARGET_USES_ION := true
 TARGET_SCREEN_DENSITY := 440
 
 # Filesystem
@@ -71,13 +73,13 @@ BOARD_INCLUDE_DTB_IN_BOOTIMG := true
 BOARD_KERNEL_SEPARATED_DTBO := true
 BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
 TARGET_KERNEL_SOURCE := kernel/xiaomi/sdm710
-TARGET_KERNEL_CONFIG := sdm670-perf_defconfig xiaomi/sdm710-common.config xiaomi/grus.config
+TARGET_KERNEL_CONFIG := \
+        sdm670-perf_defconfig \
+        xiaomi/sdm710-common.config \
+        xiaomi/grus.config
 
 # Lineage Health
 TARGET_HEALTH_CHARGING_CONTROL_SUPPORTS_BYPASS := false
-
-# Media
-TARGET_USES_ION := true
 
 # Partitions
 BOARD_FLASH_BLOCK_SIZE := 262144 # (BOARD_KERNEL_PAGESIZE * 64)
@@ -140,7 +142,7 @@ TARGET_RELEASETOOLS_EXTENSIONS := $(DEVICE_PATH)
 ENABLE_VENDOR_RIL_SERVICE := true
 
 # Security patch level
-VENDOR_SECURITY_PATCH := 2022-05-01
+VENDOR_SECURITY_PATCH := $(PLATFORM_SECURITY_PATCH)
 
 # Sepolicy
 TARGET_USES_LOGDUMP_AS_METADATA := true
@@ -160,14 +162,14 @@ BOARD_AVB_RECOVERY_ROLLBACK_INDEX := 1
 BOARD_AVB_RECOVERY_ROLLBACK_INDEX_LOCATION := 1
 
 # VINTF
+DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
+DEVICE_MATRIX_FILE += hardware/qcom-caf/common/compatibility_matrix.xml
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := \
     $(DEVICE_PATH)/framework_compatibility_matrix.xml \
     hardware/qcom-caf/common/vendor_framework_compatibility_matrix.xml \
     hardware/qcom-caf/common/vendor_framework_compatibility_matrix_legacy.xml \
     hardware/xiaomi/vintf/xiaomi_framework_compatibility_matrix.xml \
     vendor/alpha/config/device_framework_matrix.xml
-DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
-DEVICE_MATRIX_FILE += hardware/qcom-caf/common/compatibility_matrix.xml
 
 # VNDK
 BOARD_VNDK_VERSION := current

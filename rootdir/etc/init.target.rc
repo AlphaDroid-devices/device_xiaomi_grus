@@ -155,6 +155,10 @@ on boot
     setprop vendor.usb.dpl.inst.name "dpl"
     setprop vendor.usb.qdss.inst.name "qdss"
 
+# restore correct usb config during early boot
+on boot && property:persist.sys.usb.config=*
+    setprop sys.usb.config ${persist.sys.usb.config}
+
 #pd-mapper
 service vendor.pd_mapper /vendor/bin/pd-mapper
     class core

@@ -24,7 +24,7 @@
     <item name="pixel_pitch" format="float" type="dimen">58.84</item>
 
     <!-- the padding on the start of the statusbar -->
-    <dimen name="status_bar_padding_start">30px</dimen>
+    <dimen name="status_bar_padding_start">12dp</dimen>
 
     <!-- The CPU temperature sensor path, defaults to empty -->
     <string name="config_cpuTempSensor" translatable="false">/sys/class/thermal/thermal_zone13/temp</string>

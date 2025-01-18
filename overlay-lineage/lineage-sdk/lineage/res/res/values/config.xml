@@ -47,7 +47,17 @@
     <!-- Whether device has screen with higher aspect ratio -->
     <bool name="config_haveHigherAspectRatioScreen">true</bool>
 
-    <!-- Whether charging control should be enabled by default -->
+    <!-- The list of package IDs that are allowed to use aux cameras.
+         NOTE: If this list is empty then all apps will be able to use aux cameras. -->
+    <string-array name="config_cameraAuxPackageAllowList" translatable="false">
+        <item>org.codeaurora.snapcam</item>
+        <item>com.android.camera</item>
+        <item>org.lineageos.aperture</item>
+        <item>org.lineageos.aperture.dev</item>
+        <item>com.google.android.GoogleCamera</item>
+    </string-array>
+
+  <!-- Whether charging control should be enabled by default -->
     <bool name="config_chargingControlEnabled">true</bool>
 
     <!-- Default charging control mode.
