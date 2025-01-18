@@ -384,7 +384,7 @@ PRODUCT_PACKAGES += \
     init.qcom.rc \
     init.recovery.qcom.rc \
     init.target.rc \
-    init.xiaomi.rc \
+    init.sdm710.rc \
     ueventd.qcom.rc
 
 # Sensors

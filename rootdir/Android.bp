@@ -53,8 +53,8 @@ prebuilt_etc {
 }
 
 prebuilt_etc {
-    name: "init.xiaomi.rc",
-    src: "etc/init.xiaomi.rc",
+    name: "init.sdm710.rc",
+    src: "etc/init.sdm710.rc",
     sub_dir: "init/hw",
     vendor: true,
 }
