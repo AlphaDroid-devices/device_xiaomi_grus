@@ -102,6 +102,8 @@
         <device name="SND_DEVICE_OUT_USB_HEADPHONES" acdb_id="10"/>
         <device name="SND_DEVICE_IN_USB_REALIME_LOOPBACK_MIC" acdb_id="10019"/>
         <device name="SND_DEVICE_OUT_USB_HEADSET_KARA" acdb_id="10020"/>
+        <device name="SND_DEVICE_OUT_VOICE_USB_HEADSET" acdb_id="10"/>
+        <device name="SND_DEVICE_OUT_VOICE_USB_HEADPHONES" acdb_id="10"/>
 
     </acdb_ids>
     <backend_names>
