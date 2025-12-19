@@ -34,16 +34,8 @@ lib_fixups: lib_fixups_user_type = {
 }
 
 blob_fixups: blob_fixups_user_type = {
-    'vendor/lib/hw/audio.primary.grus.so': blob_fixup()
-        .replace_needed('/vendor/lib/liba2dpoffload.so', '/odm/lib/liba2dpoffload.so')
-        .replace_needed('/vendor/lib/libssrec.so', '/odm/lib/libssrec.so'),
     'vendor/lib/libswregistrationalgo.so': blob_fixup()
         .replace_needed('libprotobuf-cpp-full.so', 'libprotobuf-cpp-full-3.9.1.so'),
-    (
-        'vendor/lib/hw/audio.primary.grus.so',
-        'vendor/lib/libaudioroute_ext.so'
-    ): blob_fixup()
-        .replace_needed('libaudioroute.so', 'libaudioroute-v34.so'),
 }  # fmt: skip
 
 module = ExtractUtilsModule(
