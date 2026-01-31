@@ -1,0 +1,39 @@
+# misc
+allow {
+    adpl
+    cnd
+    hal_audio_default
+    hal_bluetooth_qti
+    hal_graphics_composer_default
+    hal_imsrtp hal_sensors_default
+    ims
+    netmgrd
+    qti
+    rild
+    sensors
+    vendor_dpmd
+}diag_device:chr_file rw_file_perms;
+
+allow hal_mtdservice_default file_contexts_file:file r_file_perms;
+allow hal_mtdservice_default hal_mtdservice_default:capability sys_admin;
+allow hal_mtdservice_default { media_rw_data_file rootfs }:file getattr;
+allow hal_mtdservice_default { persist_bms_file persist_qti_fp_file }:dir getattr;
+allow hal_usb_qti sysfs_udc:dir search;
+allow kernel kernel:socket create;
+allow nfc nfc_vendor_data_file:dir search;
+allow qti_init_shell proc_sched:file rw_file_perms;
+allow qtidataservices_app qtidataservices_app:socket create;
+
+get_prop(hal_capabilityconfigstore_qti_default, vendor_cap_configstore_dbg_prop)
+get_prop(hal_gnss_qti, vendor_pd_locater_dbg_prop)
+get_prop(hal_wifi_default, persist_vendor_debug_wifi_prop)
+get_prop(rild, vendor_pd_locater_dbg_prop)
+set_prop(vendor_init, audio_prop)
+set_prop(vendor_init, vendor_dpps_prop)
+
+# neverallows
+# allow hal_nfc_default default_android_hwservice:hwservice_manager find;
+# allow vendor_init default_prop:property_service set;
+# allow hal_mtdservice_default hal_mtdservice_default:capability dac_read_search;
+# allow hal_audio_default default_prop:file read;
+# allow qtidataservices_app qtidataservices_app:socket ioctl;
