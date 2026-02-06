@@ -353,14 +353,13 @@
     <ctl name="DEC3 MUX" value="ZERO" />
     <ctl name="DEC4 MUX" value="ZERO" />
     <ctl name="ADC2 MUX" value="ZERO" />
-    <ctl name="RDAC2 MUX" value="ZERO" />
 
     <!-- Interpolator chain controls -->
     <!-- ADD RX Chain Controls -->
 
     <ctl name="RX1 MIX1 INP1" value="ZERO" />
     <ctl name="RX2 MIX1 INP1" value="ZERO" />
-    <ctl name="RDAC2 MUX" value="ZERO" />
+    <ctl name="RDAC2 MUX" value="RX2" />
     <ctl name="HPHL" value="ZERO" />
     <ctl name="HPHR" value="ZERO" />
     <ctl name="RX1 MIX2 INP1" value="ZERO" />
@@ -425,7 +424,20 @@
     <ctl name="Ultrasound Microphone Index" value="0" />
 
     <!-- Add the new path begin -->
-    <ctl name="INT0_MI2S_RX SampleRate" value="KHZ_48" />
+    <ctl name="PRIM_MI2S_RX Channels" value="Two" />
+    <ctl name="PRIM_MI2S_RX Format" value="S24_LE" />
+    <ctl name="PRIM_MI2S_RX SampleRate" value="KHZ_48" />
+    <ctl name="PRIM_MI2S_TX Channels" value="Two" />
+    <ctl name="PRIM_MI2S_TX Format" value="S24_LE" />
+    <ctl name="PRIM_MI2S_TX SampleRate" value="KHZ_48" />
+    <ctl name="PRI_MI2S_RX_VI_FB_MUX" value="ZERO" />
+    <ctl name="DSP1 Firmware" value="Protection" />
+    <ctl name="DSP1 Preload Switch" value="1" />
+    <ctl name="PCM Source" value="None" />
+    <ctl name="ASPTX Ref" value="None" />
+    <ctl name="AMP PCM Gain" value="16" />
+    <ctl name="PCM Soft Ramp" value="4ms" />
+    <ctl name="INT0_MI2S_RX SampleRate" value="KHZ_96" />
 
     <path name="ultrasound-capture-input">
     </path>
@@ -2560,6 +2572,7 @@
     </path>
 
     <path name="spkr-vi-record">
+        <ctl name="PRI_MI2S_RX_VI_FB_MUX" value="PRI_MI2S_TX" />
     </path>
 
     <!-- These are actual sound device specific mixer settings -->
@@ -2607,43 +2620,20 @@
     </path>
 
     <path name="speaker">
-        <ctl name="INT4_MI2S_RX Channels" value="Two" />
-        <ctl name="RX4 MIX1 INP1" value="RX4" />
-        <ctl name="RX5 MIX1 INP1" value="RX5" />
-        <ctl name="COMP1 Switch" value="1" />
-        <ctl name="COMP2 Switch" value="1" />
-        <ctl name="SpkrLeft COMP Switch" value="1" />
-        <ctl name="SpkrLeft BOOST Switch" value="1" />
-        <ctl name="SpkrLeft VISENSE Switch" value="1" />
-        <ctl name="SpkrLeft SWR DAC_Port Switch" value="1" />
-        <ctl name="SpkrRight COMP Switch" value="1" />
-        <ctl name="SpkrRight BOOST Switch" value="1" />
-        <ctl name="SpkrRight VISENSE Switch" value="1" />
-        <ctl name="SpkrRight SWR DAC_Port Switch" value="1" />
-        <ctl name="SpkrLeft WSA PA Mute" value="0" />
-        <ctl name="SpkrRight WSA PA Mute" value="0" />
+        <ctl name="DSP1 Firmware" value="Protection" />
+        <ctl name="PCM Source" value="DSP" />
+        <ctl name="ASP TX1 Source" value="DSPTX1" />
+        <ctl name="ASP TX2 Source" value="DSPTX1" />
+        <ctl name="ASPTX Ref" value="Ref" />
+        <ctl name="AMP PCM Gain" value="16" />
     </path>
 
     <path name="speaker-mono">
-        <ctl name="INT4_MI2S_RX Channels" value="One" />
-        <ctl name="RX4 MIX1 INP1" value="RX4" />
-        <ctl name="COMP1 Switch" value="1" />
-        <ctl name="SpkrLeft COMP Switch" value="1" />
-        <ctl name="SpkrLeft BOOST Switch" value="1" />
-        <ctl name="SpkrLeft VISENSE Switch" value="1" />
-        <ctl name="SpkrLeft SWR DAC_Port Switch" value="1" />
-        <ctl name="SpkrLeft WSA PA Mute" value="0" />
+        <path name="speaker" />
     </path>
 
     <path name="speaker-mono-2">
-        <ctl name="INT4_MI2S_RX Channels" value="One" />
-        <ctl name="RX5 MIX1 INP1" value="RX4" />
-        <ctl name="COMP2 Switch" value="1" />
-        <ctl name="SpkrRight COMP Switch" value="1" />
-        <ctl name="SpkrRight BOOST Switch" value="1" />
-        <ctl name="SpkrRight VISENSE Switch" value="1" />
-        <ctl name="SpkrRight SWR DAC_Port Switch" value="1" />
-        <ctl name="SpkrRight WSA PA Mute" value="0" />
+        <path name="speaker" />
     </path>
 
     <path name="speaker-fluid">
@@ -2681,7 +2671,8 @@
     </path>
 
     <path name="speaker-mic">
-        <path name="dmic2" />
+            <path name="adc3" />
+            <ctl name="ADC3 Volume" value="6" />
     </path>
 
     <path name="speaker-mic-liquid">
@@ -2700,10 +2691,7 @@
     </path>
 
     <path name="voice-speaker-protected">
-        <ctl name="AIF1_VI_SDW Mixer SPKR_VI_1" value="1" />
-        <path name="speaker-mono" />
-        <ctl name="VI_FEED_TX Channels" value="One" />
-        <ctl name="INT4_MI2S_RX_VI_FB_MONO_CH_MUX" value="INT5_MI2S_TX" />
+        <path name="speaker" />
     </path>
 
     <path name="voice-speaker-2-protected">
@@ -2724,12 +2712,21 @@
     </path>
 
     <path name="handset">
-        <ctl name="EAR SPKR PA Gain" value="G_3_DB" />
-        <path name="speaker-mono" />
+        <ctl name="INT0_MI2S_RX SampleRate" value="KHZ_96" />
+        <ctl name="RX1 MIX1 INP1" value="RX1" />
+        <ctl name="RDAC2 MUX" value="RX1" />
+        <ctl name="EAR_S" value="Switch" />
+        <ctl name="INT0_MI2S_RX Channels" value="One" />
     </path>
 
     <path name="handset-mic">
-        <path name="dmic3" />
+        <ctl name="INT3_MI2S_TX Channels" value="Two" />
+        <ctl name="DEC1 MUX" value="ADC1" />
+        <ctl name="ADC1_INP1 Switch" value="1" />
+        <ctl name="DEC2 MUX" value="ADC2" />
+        <ctl name="ADC2 MUX" value="INP3" />
+        <ctl name="ADC1 Volume" value="6" />
+        <ctl name="ADC3 Volume" value="6" />
     </path>
 
     <path name="va-enroll-mic">
@@ -2753,13 +2750,15 @@
     </path>
 
     <path name="handset-mic-db">
+        <path name="adc1" />
     </path>
 
     <path name="handset-mic-cdp">
-        <path name="dmic2" />
+        <path name="adc1" />
     </path>
 
     <path name="handset-mic-sbc">
+        <path name="adc1" />
     </path>
 
     <path name="three-mic">
@@ -2783,6 +2782,8 @@
         <ctl name="COMP0 RX2" value="0" />
         <ctl name="HPHL" value="Switch" />
         <ctl name="HPHR" value="Switch" />
+        <ctl name="RX1 Digital Volume" value="80" />
+        <ctl name="RX2 Digital Volume" value="80" />
     </path>
 
     <path name="headphones-44.1">
@@ -2821,7 +2822,12 @@
     </path>
 
     <path name="voice-speaker">
-        <path name="speaker-mono" />
+        <ctl name="DSP1 Firmware" value="Protection" />
+        <ctl name="PCM Source" value="DSP" />
+        <ctl name="ASP TX1 Source" value="DSPTX1" />
+        <ctl name="ASP TX2 Source" value="DSPTX1" />
+        <ctl name="ASPTX Ref" value="Ref" />
+        <ctl name="AMP PCM Gain" value="13" />
     </path>
 
     <path name="voice-speaker-2">
@@ -2838,6 +2844,8 @@
 
     <path name="voice-headphones">
         <path name="headphones" />
+        <ctl name="RX1 Digital Volume" value="84" />
+        <ctl name="RX2 Digital Volume" value="84" />
     </path>
 
     <path name="voice-line">
@@ -2978,17 +2986,25 @@
 
     <!-- Dual MIC devices -->
     <path name="handset-dmic-endfire">
-        <ctl name="Ultrasound Microphone Index" value="1" />
-        <ctl name="DEC1 MUX" value="DMIC3" />
-        <ctl name="DEC2 MUX" value="DMIC4" />
+        <ctl name="DEC1 MUX" value="ADC1" />
+        <ctl name="ADC1_INP1 Switch" value="1" />
+        <ctl name="DEC2 MUX" value="ADC2" />
+        <ctl name="ADC2 MUX" value="INP3" />
         <ctl name="INT3_MI2S_TX Channels" value="Two" />
+        <ctl name="Ultrasound Microphone Index" value="1" />
+        <ctl name="DEC1 Volume" value="84" />
+        <ctl name="ADC1 Volume" value="6" />
+        <ctl name="ADC3 Volume" value="6" />
     </path>
 
     <path name="speaker-dmic-endfire">
-        <ctl name="Ultrasound Microphone Index" value="1" />
-        <ctl name="DEC1 MUX" value="DMIC2" />
-        <ctl name="DEC2 MUX" value="DMIC4" />
+        <ctl name="DEC1 MUX" value="ADC1" />
+        <ctl name="ADC1_INP1 Switch" value="1" />
+        <ctl name="DEC2 MUX" value="ADC2" />
+        <ctl name="ADC2 MUX" value="INP3" />
         <ctl name="INT3_MI2S_TX Channels" value="Two" />
+        <ctl name="ADC1 Volume" value="6" />
+        <ctl name="ADC3 Volume" value="6" />
     </path>
 
     <path name="handset-dmic-music">
