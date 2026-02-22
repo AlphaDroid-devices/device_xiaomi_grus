@@ -21,8 +21,9 @@ from extract_utils.main import (
 )
 
 namespace_imports = [
-    'hardware/qcom/sdm845/display',
+    'hardware/qcom-caf/sdm845',
     'hardware/xiaomi',
+    'vendor/qcom/opensource/display',
     'vendor/xiaomi/sdm710-common',
 ]
 
