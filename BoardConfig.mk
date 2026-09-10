@@ -9,9 +9,6 @@ include device/xiaomi/sdm710-common/BoardConfigCommon.mk
 
 DEVICE_PATH := device/xiaomi/grus
 
-# Audio
-AUDIO_FEATURE_ELLIPTIC_ULTRASOUND_SUPPORT := true
-
 # Display
 TARGET_SCREEN_DENSITY := 440
 

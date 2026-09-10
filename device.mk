@@ -14,6 +14,9 @@ $(call inherit-product, device/xiaomi/sdm710-common/sdm710.mk)
 PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 
+# Audio
+$(call soong_config_set_bool,android_hardware_audio,skip_speaker_layout_channel_mask_field,true)
+
 # Audio configs
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(LOCAL_PATH)/audio/,$(TARGET_COPY_OUT_VENDOR)/etc)
@@ -21,10 +24,6 @@ PRODUCT_COPY_FILES += \
 # Boot animation
 TARGET_SCREEN_HEIGHT := 2340
 TARGET_SCREEN_WIDTH := 1080
-
-# FOD
-TARGET_HAS_UDFPS := true
-EXTRA_UDFPS_ANIMATIONS := true
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
