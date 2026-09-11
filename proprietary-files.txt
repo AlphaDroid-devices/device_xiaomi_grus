@@ -238,11 +238,13 @@ vendor/bin/hw/android.hardware.gatekeeper@1.0-service-qti
 vendor/etc/init/android.hardware.gatekeeper@1.0-service-qti.rc
 vendor/lib64/hw/android.hardware.gatekeeper@1.0-impl-qti.so
 
-# HotwordEnrollment from - Mi 10 (umi) 12.1.2.0.RJBMIXM
+# HotwordEnrollment from - OnePlus 12R (aston) OOS, 12R_400 BP2A.250605.015
+# The Mi 10 apps only declare keyphrase 100/101; GSA asks for 'Y Google' (102).
+# The library declaration is still the Mi 10 one - it already targets /system_ext.
 system_ext/etc/permissions/com.android.hotwordenrollment.common.util.xml
 system_ext/framework/com.android.hotwordenrollment.common.util.jar
-system_ext/priv-app/HotwordEnrollmentOKGoogleHEXAGON/HotwordEnrollmentOKGoogleHEXAGON.apk
-system_ext/priv-app/HotwordEnrollmentXGoogleHEXAGON/HotwordEnrollmentXGoogleHEXAGON.apk
+system_ext/priv-app/HotwordEnrollmentXGoogleHEXAGON_WIDEBAND/HotwordEnrollmentXGoogleHEXAGON_WIDEBAND.apk
+system_ext/priv-app/HotwordEnrollmentYGoogleHEXAGON_WIDEBAND/HotwordEnrollmentYGoogleHEXAGON_WIDEBAND.apk
 
 # Keymaster
 vendor/bin/hw/android.hardware.keymaster@4.0-service-qti
